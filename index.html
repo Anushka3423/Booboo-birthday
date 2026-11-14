@@ -434,8 +434,25 @@ nav a:hover {text-decoration:underline}
 }
 
 #cakeMessage {
-  font-size:20px;
-  min-height:35px;
+  font-size:22px;
+  min-height:45px;
+  color:#c94e7b;
+  font-weight:bold;
+  animation:celebrationPop .7s ease;
+}
+
+@keyframes celebrationPop {
+  0% {
+    transform:scale(.5);
+    opacity:0;
+  }
+  70% {
+    transform:scale(1.15);
+    opacity:1;
+  }
+  100% {
+    transform:scale(1);
+  }
 }
 
 
@@ -897,6 +914,7 @@ function updateCake(){
     document.getElementById("cakeMessage").textContent=
       "All 25 candles are out! Happy birthday, my love! ♡";
     launchHearts();
+    launchConfetti();
   }else{
     document.getElementById("cakeMessage").textContent="";
   }
@@ -908,28 +926,35 @@ function resetCake(){
 }
 buildCake();
 
-/* HEARTS */
-function launchHearts(){
-  for(let i=0;i<22;i++){
-    const heart=document.createElement("div");
-    heart.textContent="♡";
-    heart.style.position="fixed";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.top="100vh";
-    heart.style.zIndex="50";
-    heart.style.fontSize=(18+Math.random()*20)+"px";
-    heart.style.color="#d66d91";
-    heart.style.pointerEvents="none";
-    document.body.appendChild(heart);
-    const animation=heart.animate(
-      [{transform:"translateY(0)",opacity:1},
-       {transform:"translateY(-110vh)",opacity:0}],
-      {duration:2500+Math.random()*1500}
+/* CONFETTI */
+function launchConfetti(){
+  const colors = ["#f4a6bd","#d982a0","#ffd166","#fff0f3","#c94e7b"];
+
+  for(let i = 0; i < 80; i++){
+    const piece = document.createElement("div");
+
+    piece.style.position = "fixed";
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.top = "-15px";
+    piece.style.width = "8px";
+    piece.style.height = "12px";
+    piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+    piece.style.zIndex = "100";
+    piece.style.pointerEvents = "none";
+
+    document.body.appendChild(piece);
+
+    const animation = piece.animate(
+      [
+        {transform:"translateY(0) rotate(0deg)",opacity:1},
+        {transform:`translateY(110vh) rotate(${Math.random()*720}deg)`,opacity:0}
+      ],
+      {duration:2500 + Math.random()*2000}
     );
-    animation.onfinish=()=>heart.remove();
+
+    animation.onfinish = () => piece.remove();
   }
 }
-
 /* PLAYLIST */
 const playlistBox=document.getElementById("playlist");
 
