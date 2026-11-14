@@ -4,172 +4,384 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 25th Birthday, Booboo ❤️</title>
+<title>Happy 25th Birthday, Booboo ♡</title>
 
 <style>
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
+:root {
+  --pink:#f7dce4;
+  --rose:#a95f76;
+  --dark:#68434d;
+  --cream:#fff7f5;
+  --white:#fff;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
 body {
-  margin: 0;
-  background: #fff7f5;
-  color: #68434d;
-  font-family: Georgia, serif;
-  text-align: center;
+  margin:0;
+  background:var(--cream);
+  color:var(--dark);
+  font-family:Georgia,serif;
+  text-align:center;
 }
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 35px 20px;
-  background: linear-gradient(145deg,#fbe2e8,#fff5ef,#f8dce5);
-}
-
-.heart { font-size: 42px; margin-bottom: 15px; }
-
-h1 {
-  font-size: clamp(38px,8vw,65px);
-  font-weight: normal;
-  margin: 10px;
-}
-
-.hero p { font-size: 18px; line-height: 1.7; }
-
 button {
-  background: #a95f76;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 14px 27px;
-  font-size: 15px;
-  cursor: pointer;
-  margin: 12px;
-  transition: .2s;
+  background:var(--rose);
+  color:white;
+  border:0;
+  border-radius:30px;
+  padding:13px 22px;
+  margin:8px;
+  cursor:pointer;
+  font-size:15px;
+  font-family:inherit;
+  transition:.2s;
 }
-
-button:hover { transform: scale(1.05); }
-
-section { padding: 75px 20px; }
-
-h2 {
-  font-size: 34px;
-  font-weight: normal;
-  margin-bottom: 15px;
+button:hover {transform:scale(1.04)}
+button:disabled {opacity:.55;cursor:not-allowed}
+h1 {font-size:clamp(38px,8vw,66px);font-weight:normal}
+h2 {font-size:clamp(27px,5vw,37px);font-weight:normal}
+h3 {font-weight:normal}
+p {line-height:1.8}
+section {padding:70px 18px}
+.hero {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:35px 18px;
+  background:linear-gradient(145deg,#fbe2e8,#fff5ef,#f8dce5);
 }
-
-.subtitle {
-  font-size: 15px;
-  color: #a17b83;
-  margin-bottom: 35px;
+.hero .heart {font-size:48px}
+.hero p {font-size:17px}
+.eyebrow {
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:11px;
+  color:#a17b83;
 }
-
+.subtitle {color:#a17b83;margin-bottom:32px}
 .card {
-  background: white;
-  border-radius: 18px;
-  padding: 25px;
-  max-width: 600px;
-  margin: 18px auto;
-  box-shadow: 0 5px 20px #b77c8415;
+  background:white;
+  border-radius:20px;
+  padding:25px;
+  max-width:650px;
+  margin:20px auto;
+  box-shadow:0 6px 25px #b77c8415;
 }
-
+.soft {background:#fce9ec}
 .reasons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(135px,1fr));
-  gap: 12px;
-  max-width: 750px;
-  margin: auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
+  gap:12px;
+  max-width:780px;
+  margin:auto;
 }
-
 .reason {
-  background: white;
-  padding: 20px 10px;
-  border-radius: 15px;
-  min-height: 110px;
-  border: 1px solid #f4d9df;
+  background:white;
+  padding:18px 10px;
+  border-radius:15px;
+  border:1px solid #f4d9df;
+  min-height:125px;
 }
-
-.reason button { margin: 8px 0 0; padding: 9px 15px; }
-
-.reason p {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.memories {
-  background: #fce9ec;
-}
-
+.reason p {font-size:14px}
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-  gap: 14px;
-  max-width: 700px;
-  margin: auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:14px;
+  max-width:750px;
+  margin:auto;
 }
-
 .photo {
-  min-height: 170px;
-  border: 2px dashed #d8a6b2;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  background: #fff9f8;
-  font-size: 14px;
+  min-height:175px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff9f8;
+  border:2px dashed #d8a6b2;
+  border-radius:14px;
+  padding:12px;
+  overflow:hidden;
 }
-
+.photo img {width:100%;height:190px;object-fit:cover;border-radius:10px}
 .letter {
-  background: #fff;
-  max-width: 650px;
-  margin: auto;
-  padding: 35px;
-  border-radius: 15px;
-  line-height: 2;
-  text-align: left;
+  max-width:650px;
+  margin:auto;
+  padding:30px;
+  border-radius:16px;
+  background:white;
+  text-align:left;
+  line-height:2;
 }
-
-footer {
-  padding: 35px;
-  background: #f4dce2;
-  font-size: 14px;
+footer {padding:35px;background:#f4dce2}
+nav {
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#fff9f7ee;
+  backdrop-filter:blur(10px);
+  padding:10px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:3px;
+  border-bottom:1px solid #f1d9df;
 }
+nav a {
+  color:#895367;
+  text-decoration:none;
+  padding:8px;
+  font-size:12px;
+}
+nav a:hover {text-decoration:underline}
 
-#quizAnswer { min-height: 35px; }
+/* ENVELOPE */
+.envelope-wrap {max-width:480px;margin:35px auto}
+.envelope {
+  position:relative;
+  width:min(300px,85vw);
+  height:190px;
+  margin:auto;
+  background:#e9aebd;
+  border-radius:5px;
+  cursor:pointer;
+  box-shadow:0 8px 20px #89536720;
+}
+.envelope:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#f3c4cf;
+  clip-path:polygon(0 0,50% 58%,100% 0);
+  transform-origin:top;
+  transition:transform .7s;
+  z-index:3;
+}
+.envelope:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#d990a6;
+  clip-path:polygon(0 100%,50% 48%,100% 100%);
+  z-index:2;
+}
+.envelope.open:before {transform:rotateX(180deg)}
+.seal {
+  position:absolute;
+  z-index:4;
+  top:75px;
+  left:calc(50% - 22px);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#a95f76;
+  color:white;
+  display:grid;
+  place-items:center;
+}
+.letter-content {
+  display:none;
+  background:white;
+  border:1px solid #efd2da;
+  border-radius:16px;
+  padding:25px;
+  text-align:left;
+  line-height:2;
+  margin:25px auto;
+  max-width:600px;
+  animation:fade .7s;
+}
+.letter-content.show {display:block}
+@keyframes fade {from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 
+/* CAKE */
+.cake-area {max-width:440px;margin:35px auto}
+.cake {
+  position:relative;
+  width:260px;
+  height:170px;
+  margin:65px auto 0;
+}
+.cake-top {
+  position:absolute;
+  top:55px;
+  left:0;
+  width:260px;
+  height:45px;
+  background:#f3b9c9;
+  border-radius:50%;
+  border:4px solid #e39caf;
+  z-index:2;
+}
+.cake-body {
+  position:absolute;
+  top:76px;
+  left:10px;
+  width:240px;
+  height:90px;
+  background:linear-gradient(#efb3c3,#d987a0);
+  border-radius:0 0 20px 20px;
+}
+.cake-body:after {
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;
+  height:18px;
+  background:#fff0f1;
+  border-radius:50%;
+}
+.candles {
+  position:absolute;
+  z-index:4;
+  top:0;
+  left:5px;
+  width:250px;
+  height:95px;
+  display:grid;
+  grid-template-columns:repeat(9,1fr);
+  align-items:end;
+  justify-items:center;
+}
+.candle {
+  width:10px;
+  height:53px;
+  border-radius:3px;
+  background:repeating-linear-gradient(45deg,#fff 0 5px,#d98aa0 5px 9px);
+  position:relative;
+  cursor:pointer;
+}
+.flame {
+  position:absolute;
+  top:-17px;
+  left:2px;
+  width:7px;
+  height:14px;
+  border-radius:50% 50% 45% 45%;
+  background:#ffb94f;
+  box-shadow:0 0 12px #ffbb54;
+  animation:flicker .5s infinite alternate;
+}
+.candle.out .flame {display:none}
+.candle.out {opacity:.6}
+@keyframes flicker {to{transform:scale(.8);opacity:.7}}
+#cakeMessage {font-size:20px;min-height:35px}
+
+/* MUSIC */
+.song {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:14px;
+  background:#fff;
+  border-radius:13px;
+  margin:10px auto;
+  max-width:600px;
+  text-align:left;
+}
+.song span {font-size:14px}
+.song a {color:#a95f76;font-size:13px;white-space:nowrap}
+
+/* WHEEL */
+.wheel-box {max-width:390px;margin:25px auto}
+#wheel {
+  width:min(310px,85vw);
+  height:min(310px,85vw);
+  border-radius:50%;
+  border:8px solid white;
+  box-shadow:0 5px 20px #a95f7630;
+  transition:transform 4s cubic-bezier(.12,.75,.15,1);
+}
+.wheel-pointer {
+  font-size:30px;
+  margin-bottom:-10px;
+  position:relative;
+  z-index:2;
+}
+#wheelResult {font-size:20px;min-height:55px}
+
+/* SECRET PAGE */
+#secretPage {
+  display:none;
+  position:fixed;
+  z-index:30;
+  inset:0;
+  overflow-y:auto;
+  background:#fff3f5;
+  padding:30px 18px;
+}
+.secret-card {
+  max-width:550px;
+  margin:50px auto;
+  background:white;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 10px 30px #a95f7620;
+}
+input {
+  padding:13px;
+  border:1px solid #e5b9c6;
+  border-radius:10px;
+  width:min(260px,100%);
+  font-size:16px;
+  text-align:center;
+}
+#secretMessage {display:none;line-height:2}
+.small {font-size:12px;color:#a17b83}
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME PAGE -->
-<div class="hero">
+<!-- NAVIGATION -->
+<nav>
+  <a href="#world">Reasons</a>
+  <a href="#cake">Cake</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#memories">Memories</a>
+  <a href="#music">Music</a>
+  <a href="#wheelSection">Surprise</a>
+  <a href="#letter">Letter</a>
+</nav>
+
+<!-- WELCOME -->
+<header class="hero">
   <div class="heart">♡</div>
-  <p>A little something made just for you</p>
+  <p class="eyebrow">A little something made just for you</p>
   <h1>Happy 25th Birthday,<br>Booboo!</h1>
   <p>25 years of you. And I'm so lucky<br>to be a part of your story.</p>
   <button onclick="document.getElementById('world').scrollIntoView()">
     Enter your little world ♡
   </button>
-  <p>Made with all my love.</p>
-</div>
+  <p class="small">Made with all my love.</p>
+</header>
 
-<!-- 25 REASONS -->
+<!-- REASONS -->
 <section id="world">
   <h2>25 Reasons I Love You</h2>
   <p class="subtitle">A little something for every year of your life ♡</p>
-
   <div class="reasons" id="reasons"></div>
 </section>
 
-<!-- QUIZ -->
-<section class="memories">
-  <h2>How well do you know us?</h2>
-  <p class="subtitle">Let's see how much you remember!</p>
+<!-- CAKE -->
+<section class="soft" id="cake">
+  <h2>A Cake Just For You</h2>
+  <p class="subtitle">25 candles, 25 wishes. Tap each candle to blow it out!</p>
+  <div class="cake-area">
+    <div class="cake">
+      <div class="candles" id="candles"></div>
+      <div class="cake-top"></div>
+      <div class="cake-body"></div>
+    </div>
+  </div>
+  <p id="candleCount">25 candles still glowing ♡</p>
+  <p id="cakeMessage"></p>
+  <button onclick="resetCake()">Light them again</button>
+</section>
 
+<!-- QUIZ -->
+<section id="quiz">
+  <h2>How Well Do You Know Us?</h2>
+  <p class="subtitle">Let's see how much you remember!</p>
   <div class="card">
     <h3 id="question">Question 1</h3>
     <div id="answers"></div>
@@ -179,54 +391,108 @@ footer {
 </section>
 
 <!-- MEMORIES -->
-<section>
+<section class="soft" id="memories">
   <h2>Our Little World</h2>
   <p class="subtitle">Some moments I wish I could relive forever.</p>
-
   <div class="gallery">
     <div class="photo">♡ Our first picture</div>
     <div class="photo">♡ My favourite memory</div>
     <div class="photo">♡ Your cutest picture</div>
     <div class="photo">♡ A moment with you</div>
   </div>
+  <p class="small">We'll add your actual photos here together!</p>
 </section>
 
-<!-- LOVE LETTER -->
-<section class="memories">
+<!-- MUSIC -->
+<section id="music">
+  <h2>Songs That Remind Me of You</h2>
+  <p class="subtitle">A little soundtrack for our story ♡</p>
+  <div id="playlist"></div>
+  <p class="small">Add your favourite songs and their YouTube or Spotify links in the code.</p>
+</section>
+
+<!-- SPIN WHEEL -->
+<section class="soft" id="wheelSection">
+  <h2>Booboo's Birthday Wheel</h2>
+  <p class="subtitle">Spin it and see what your girl has planned!</p>
+  <div class="wheel-box">
+    <div class="wheel-pointer">▼</div>
+    <canvas id="wheel" width="600" height="600"></canvas>
+    <br>
+    <button id="spinButton" onclick="spinWheel()">SPIN THE WHEEL ♡</button>
+    <p id="wheelResult"></p>
+  </div>
+</section>
+
+<!-- ENVELOPE -->
+<section id="letter">
   <h2>A Letter For You</h2>
-  <p class="subtitle">Something I want you to know.</p>
-
-  <div class="letter">
+  <p class="subtitle">I have something to tell you, my love.</p>
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope" onclick="openLetter()">
+      <div class="seal">♡</div>
+    </div>
+    <p>Tap the envelope to open your letter</p>
+  </div>
+  <div class="letter-content" id="loveLetter">
     <h3>My dearest Booboo,</h3>
-
-    Happy 25th birthday, my love! ♡
-
+    <p>Happy 25th birthday, my love! ♡</p>
     <p>
       I wish I could be right beside you today,
       celebrating you, annoying you and making
       a hundred little memories with you.
     </p>
-
     <p>
       I'm so grateful that you exist and that
       somehow, in this enormous world, I got
       to find you.
     </p>
-
     <p>
       I hope this new chapter brings you happiness,
       beautiful opportunities and everything
       your heart wishes for.
     </p>
-
     <p>
       I love you, and I hope you never forget
       how special you are to me.
     </p>
-
     <h3>Forever your girl ♡</h3>
   </div>
 </section>
+
+<!-- SECRET PAGE ENTRY -->
+<section class="soft">
+  <h2>A Little Secret...</h2>
+  <p class="subtitle">Not everything in this little world is visible.</p>
+  <button onclick="showSecret()">Unlock your secret page ♡</button>
+</section>
+
+<!-- SECRET PAGE -->
+<div id="secretPage">
+  <div class="secret-card">
+    <p class="eyebrow">A little secret for you</p>
+    <h2>Only for Booboo ♡</h2>
+    <p>Enter your special secret code to unlock this page.</p>
+    <input id="secretCode" type="password" placeholder="Enter secret code">
+    <br>
+    <button onclick="unlockSecret()">Unlock my surprise</button>
+    <p id="secretError" class="small"></p>
+
+    <div id="secretMessage">
+      <h2>You found me! ♡</h2>
+      <p>
+        If you made it all the way here, I hope you know
+        that there are a million more things I want to
+        tell you, a million more memories I want to make,
+        and a million more birthdays I want to celebrate
+        with you.
+      </p>
+      <p>My favourite place will always be with you.</p>
+      <h2>I love you, Booboo!</h2>
+    </div>
+    <button onclick="closeSecret()">Go back to birthday world</button>
+  </div>
+</div>
 
 <footer>
   Made with love, especially for Booboo ♡<br>
@@ -235,99 +501,299 @@ footer {
 
 <script>
 
-// PERSONALISE THESE 25 REASONS LATER
+/* =====================================
+   PERSONALISE THIS PART LATER
+===================================== */
+
+// 25 REASONS
 const reasons = [
-"You make me smile.",
-"Your silly little habits.",
-"The way you care.",
-"Your laugh.",
-"Your voice.",
-"The way you make me feel.",
-"Your sense of humour.",
-"Your kindness.",
-"Your determination.",
-"Your hugs.",
-"The way you listen.",
-"Your cute expressions.",
-"Your honesty.",
-"Your little surprises.",
-"The way you tease me.",
-"Your patience.",
-"Your dreams.",
-"Your smile.",
-"The comfort you bring.",
-"Your enthusiasm.",
-"The way you understand me.",
-"Your football obsession.",
-"Your gaming side.",
-"All our little memories.",
-"Simply because you're you."
+  "You make me smile.",
+  "Your silly little habits.",
+  "The way you care.",
+  "Your laugh.",
+  "Your voice.",
+  "The way you make me feel.",
+  "Your sense of humour.",
+  "Your kindness.",
+  "Your determination.",
+  "Your hugs.",
+  "The way you listen.",
+  "Your cute expressions.",
+  "Your honesty.",
+  "Your little surprises.",
+  "The way you tease me.",
+  "Your patience.",
+  "Your dreams.",
+  "Your smile.",
+  "The comfort you bring.",
+  "Your enthusiasm.",
+  "The way you understand me.",
+  "Your football obsession.",
+  "Your gaming side.",
+  "All our little memories.",
+  "Simply because you're you."
 ];
 
-const container = document.getElementById("reasons");
-
-reasons.forEach((reason, index) => {
-  const card = document.createElement("div");
-  card.className = "reason";
-  card.innerHTML = `
-    <div>♡ ${index + 1}</div>
-    <button onclick="reveal(this)">Reveal</button>
-    <p hidden>${reason}</p>
-  `;
-  container.appendChild(card);
-});
-
-function reveal(button) {
-  const message = button.nextElementSibling;
-  message.hidden = !message.hidden;
-  button.textContent = message.hidden ? "Reveal" : "Hide";
-}
-
-// PERSONALISE THE QUIZ QUESTIONS LATER
+// QUIZ QUESTIONS
 const questions = [
   {
-    q: "What is my favourite thing about you?",
-    a: ["Everything about you", "Your gaming skills", "Your football knowledge"],
-    correct: 0
+    q:"What is my favourite thing about you?",
+    a:["Everything about you","Your gaming skills","Your football knowledge"],
+    correct:0
   },
   {
-    q: "What would I choose?",
-    a: ["A movie date with you", "A day without you", "Neither!"],
-    correct: 0
+    q:"What would I choose?",
+    a:["A movie date with you","A day without you","Neither!"],
+    correct:0
   },
   {
-    q: "Who is the cutest person?",
-    a: ["Me", "You", "Both of us"],
-    correct: 1
+    q:"Who is the cutest person?",
+    a:["Me","You","Both of us"],
+    correct:1
   }
 ];
 
-let current = 0;
+// PLAYLIST: replace the example links with your songs
+const songs = [
+  {name:"Our special song",artist:"Add artist name",url:"https://www.youtube.com/"},
+  {name:"A song that reminds me of you",artist:"Add artist name",url:"https://open.spotify.com/"},
+  {name:"Our next dance song",artist:"Add artist name",url:"https://www.youtube.com/"}
+];
 
-function showQuestion() {
-  const q = questions[current];
-  document.getElementById("question").textContent = q.q;
-  document.getElementById("quizAnswer").textContent = "";
-  const answers = document.getElementById("answers");
-  answers.innerHTML = "";
+// BIRTHDAY WHEEL PRIZES
+const prizes = [
+  "One virtual movie date ♡",
+  "A special voice note!",
+  "Unlimited kisses (redeem anytime)",
+  "You choose our next game!",
+  "A surprise from me!",
+  "One extra-long video call ♡"
+];
 
-  q.a.forEach((answer, index) => {
-    const btn = document.createElement("button");
-    btn.textContent = answer;
-    btn.onclick = () => {
-      document.getElementById("quizAnswer").textContent =
-        index === q.correct ? "You got it! ♡" : "Oops! Try again, Booboo!";
+// SECRET CODE - CHANGE THIS TO YOUR OWN
+const SECRET_CODE = "booboo25";
+
+// SECRET PAGE MESSAGE - CHANGE THIS LATER
+// =====================================
+
+/* 25 REASONS */
+const reasonsBox = document.getElementById("reasons");
+
+reasons.forEach((reason,index)=>{
+  const card=document.createElement("div");
+  card.className="reason";
+  card.innerHTML=`
+    <div>♡ ${index+1}</div>
+    <button onclick="revealReason(this)">Reveal</button>
+    <p hidden>${reason}</p>
+  `;
+  reasonsBox.appendChild(card);
+});
+
+function revealReason(button){
+  const p=button.nextElementSibling;
+  p.hidden=!p.hidden;
+  button.textContent=p.hidden?"Reveal":"Hide";
+}
+
+/* QUIZ */
+let current=0;
+
+function showQuestion(){
+  const q=questions[current];
+  document.getElementById("question").textContent=q.q;
+  document.getElementById("quizAnswer").textContent="";
+  const box=document.getElementById("answers");
+  box.innerHTML="";
+
+  q.a.forEach((answer,index)=>{
+    const b=document.createElement("button");
+    b.textContent=answer;
+    b.onclick=()=>{
+      document.getElementById("quizAnswer").textContent=
+        index===q.correct?"You got it! ♡":"Oops! Try again, Booboo!";
     };
-    answers.appendChild(btn);
+    box.appendChild(b);
   });
 }
 
-function nextQuestion() {
-  current = (current + 1) % questions.length;
+function nextQuestion(){
+  current=(current+1)%questions.length;
   showQuestion();
 }
-
 showQuestion();
+
+/* CAKE - 25 CANDLES */
+const candleBox=document.getElementById("candles");
+
+function buildCake(){
+  candleBox.innerHTML="";
+  for(let i=0;i<25;i++){
+    const candle=document.createElement("div");
+    candle.className="candle";
+    candle.innerHTML='<span class="flame"></span>';
+    candle.onclick=()=>blowCandle(candle);
+    candleBox.appendChild(candle);
+  }
+  updateCake();
+}
+
+function blowCandle(candle){
+  if(candle.classList.contains("out"))return;
+  candle.classList.add("out");
+  updateCake();
+}
+
+function updateCake(){
+  const remaining=document.querySelectorAll(".candle:not(.out)").length;
+  document.getElementById("candleCount").textContent=
+    remaining+" candles still glowing ♡";
+  if(remaining===0){
+    document.getElementById("cakeMessage").textContent=
+      "All 25 candles are out! Happy birthday, my love! ♡";
+    launchHearts();
+  }else{
+    document.getElementById("cakeMessage").textContent="";
+  }
+}
+
+function resetCake(){
+  buildCake();
+  document.getElementById("cakeMessage").textContent="";
+}
+buildCake();
+
+/* HEARTS */
+function launchHearts(){
+  for(let i=0;i<22;i++){
+    const heart=document.createElement("div");
+    heart.textContent="♡";
+    heart.style.position="fixed";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.top="100vh";
+    heart.style.zIndex="50";
+    heart.style.fontSize=(18+Math.random()*20)+"px";
+    heart.style.color="#d66d91";
+    heart.style.pointerEvents="none";
+    document.body.appendChild(heart);
+    const animation=heart.animate(
+      [{transform:"translateY(0)",opacity:1},
+       {transform:"translateY(-110vh)",opacity:0}],
+      {duration:2500+Math.random()*1500}
+    );
+    animation.onfinish=()=>heart.remove();
+  }
+}
+
+/* PLAYLIST */
+const playlistBox=document.getElementById("playlist");
+
+songs.forEach(song=>{
+  const item=document.createElement("div");
+  item.className="song";
+
+  const name=document.createElement("span");
+  name.textContent="♫ "+song.name+" — "+song.artist;
+
+  const link=document.createElement("a");
+  link.textContent="Listen ↗";
+  link.href=song.url;
+  link.target="_blank";
+  link.rel="noopener noreferrer";
+
+  item.append(name,link);
+  playlistBox.appendChild(item);
+});
+
+/* SPIN WHEEL */
+const canvas=document.getElementById("wheel");
+const ctx=canvas.getContext("2d");
+let rotation=0;
+let spinning=false;
+
+function drawWheel(){
+  const colors=["#f5c8d4","#e8a9bc","#f9dfe5","#d98ca4","#f4c4cf","#e9b4c3"];
+  const arc=Math.PI*2/prizes.length;
+
+  prizes.forEach((prize,i)=>{
+    const start=-Math.PI/2+i*arc;
+    ctx.beginPath();
+    ctx.moveTo(300,300);
+    ctx.arc(300,300,285,start,start+arc);
+    ctx.closePath();
+    ctx.fillStyle=colors[i];
+    ctx.fill();
+    ctx.strokeStyle="white";
+    ctx.lineWidth=4;
+    ctx.stroke();
+
+    ctx.save();
+    ctx.translate(300,300);
+    ctx.rotate(start+arc/2);
+    ctx.fillStyle="#68434d";
+    ctx.font="bold 23px Georgia";
+    ctx.textAlign="right";
+    ctx.fillText("♡ "+(i+1),255,8);
+    ctx.restore();
+  });
+
+  ctx.beginPath();
+  ctx.arc(300,300,36,0,Math.PI*2);
+  ctx.fillStyle="#fff7f5";
+  ctx.fill();
+}
+
+drawWheel();
+
+function spinWheel(){
+  if(spinning)return;
+  spinning=true;
+  document.getElementById("spinButton").disabled=true;
+  document.getElementById("wheelResult").textContent="Spinning... ♡";
+
+  const selected=Math.floor(Math.random()*prizes.length);
+  const arc=360/prizes.length;
+  const target=360*5+(360-(selected*arc+arc/2));
+  rotation+=target;
+
+  canvas.style.transform=`rotate(${rotation}deg)`;
+
+  setTimeout(()=>{
+    document.getElementById("wheelResult").textContent=
+      "Your surprise: "+prizes[selected];
+    spinning=false;
+    document.getElementById("spinButton").disabled=false;
+  },4100);
+}
+
+/* ENVELOPE */
+function openLetter(){
+  document.getElementById("envelope").classList.add("open");
+  document.getElementById("loveLetter").classList.add("show");
+}
+
+/* SECRET PAGE */
+function showSecret(){
+  document.getElementById("secretPage").style.display="block";
+  document.body.style.overflow="hidden";
+}
+
+function closeSecret(){
+  document.getElementById("secretPage").style.display="none";
+  document.body.style.overflow="";
+}
+
+function unlockSecret(){
+  const input=document.getElementById("secretCode").value;
+  if(input.toLowerCase()===SECRET_CODE.toLowerCase()){
+    document.getElementById("secretMessage").style.display="block";
+    document.getElementById("secretError").textContent="";
+    launchHearts();
+  }else{
+    document.getElementById("secretError").textContent=
+      "Hmm, that's not the right code. Try again, Booboo! ♡";
+  }
+}
 
 </script>
 </body>
