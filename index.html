@@ -854,27 +854,33 @@ showQuestion();
 const candleBox=document.getElementById("candles");
 
 
+
 function buildCake(){
   candleBox.innerHTML="";
 
-  for(let i=0;i<25;i++){
-    const candle=document.createElement("div");
-    candle.className="candle";
-    candle.innerHTML='<span class="flame"></span>';
-    candle.onclick=()=>blowCandle(candle);
+  const rows = [7, 9, 9];
+  let index = 0;
 
-    // Arrange candles in rows of 7, 9 and 9
-    const row = i < 7 ? 0 : i < 16 ? 1 : 2;
-    candle.style.gridRow = row + 1;
-    if(row === 0){
-  candle.style.gridColumn = `${i + 2} / span 1`;
-}
+  rows.forEach((count, rowIndex) => {
+    for(let j = 0; j < count; j++){
+      const candle = document.createElement("div");
+      candle.className = "candle";
+      candle.innerHTML = '<span class="flame"></span>';
+      candle.onclick = () => blowCandle(candle);
 
-    candleBox.appendChild(candle);
-  }
+      candle.style.gridRow = rowIndex + 1;
+      candle.style.gridColumn = rowIndex === 0
+      ? `${j + 2} / span 1`
+      : `${j + 1} / span 1`;
+
+      candleBox.appendChild(candle);
+      index++;
+    }
+  });
 
   updateCake();
 }
+
 
 
 function blowCandle(candle){
