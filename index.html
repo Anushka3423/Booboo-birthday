@@ -392,21 +392,6 @@ nav a:hover {text-decoration:underline}
 .candles {
   position:absolute;
   z-index:6;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:175px;
-  height:100px;
-  display:grid;
-  grid-template-columns:repeat(9,1fr);
-  align-items:end;
-  justify-items:center;
-}
-
-
-.candles {
-  position:absolute;
-  z-index:6;
   top:12px;
   left:50%;
   transform:translateX(-50%);
@@ -414,6 +399,7 @@ nav a:hover {text-decoration:underline}
   height:85px;
   display:grid;
   grid-template-columns:repeat(9,1fr);
+  grid-template-rows:repeat(3,1fr);
   align-items:end;
   justify-items:center;
 }
@@ -867,17 +853,29 @@ showQuestion();
 /* CAKE - 25 CANDLES */
 const candleBox=document.getElementById("candles");
 
+
 function buildCake(){
   candleBox.innerHTML="";
+
   for(let i=0;i<25;i++){
     const candle=document.createElement("div");
     candle.className="candle";
     candle.innerHTML='<span class="flame"></span>';
     candle.onclick=()=>blowCandle(candle);
+
+    // Arrange candles in rows of 7, 9 and 9
+    const row = i < 7 ? 0 : i < 16 ? 1 : 2;
+    candle.style.gridRow = row + 1;
+    if(row === 0){
+  candle.style.gridColumn = `${i + 2} / span 1`;
+}
+
     candleBox.appendChild(candle);
   }
+
   updateCake();
 }
+
 
 function blowCandle(candle){
   if(candle.classList.contains("out"))return;
