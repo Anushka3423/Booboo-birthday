@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 25th Birthday, Booboo ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #fff7f5;
+  color: #68434d;
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  background: linear-gradient(145deg,#fbe2e8,#fff5ef,#f8dce5);
+}
+
+.heart { font-size: 42px; margin-bottom: 15px; }
+
+h1 {
+  font-size: clamp(38px,8vw,65px);
+  font-weight: normal;
+  margin: 10px;
+}
+
+.hero p { font-size: 18px; line-height: 1.7; }
+
+button {
+  background: #a95f76;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 27px;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 12px;
+  transition: .2s;
+}
+
+button:hover { transform: scale(1.05); }
+
+section { padding: 75px 20px; }
+
+h2 {
+  font-size: 34px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #a17b83;
+  margin-bottom: 35px;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 600px;
+  margin: 18px auto;
+  box-shadow: 0 5px 20px #b77c8415;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(135px,1fr));
+  gap: 12px;
+  max-width: 750px;
+  margin: auto;
+}
+
+.reason {
+  background: white;
+  padding: 20px 10px;
+  border-radius: 15px;
+  min-height: 110px;
+  border: 1px solid #f4d9df;
+}
+
+.reason button { margin: 8px 0 0; padding: 9px 15px; }
+
+.reason p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.memories {
+  background: #fce9ec;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 14px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.photo {
+  min-height: 170px;
+  border: 2px dashed #d8a6b2;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: #fff9f8;
+  font-size: 14px;
+}
+
+.letter {
+  background: #fff;
+  max-width: 650px;
+  margin: auto;
+  padding: 35px;
+  border-radius: 15px;
+  line-height: 2;
+  text-align: left;
+}
+
+footer {
+  padding: 35px;
+  background: #f4dce2;
+  font-size: 14px;
+}
+
+#quizAnswer { min-height: 35px; }
+
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME PAGE -->
+<div class="hero">
+  <div class="heart">♡</div>
+  <p>A little something made just for you</p>
+  <h1>Happy 25th Birthday,<br>Booboo!</h1>
+  <p>25 years of you. And I'm so lucky<br>to be a part of your story.</p>
+  <button onclick="document.getElementById('world').scrollIntoView()">
+    Enter your little world ♡
+  </button>
+  <p>Made with all my love.</p>
+</div>
+
+<!-- 25 REASONS -->
+<section id="world">
+  <h2>25 Reasons I Love You</h2>
+  <p class="subtitle">A little something for every year of your life ♡</p>
+
+  <div class="reasons" id="reasons"></div>
+</section>
+
+<!-- QUIZ -->
+<section class="memories">
+  <h2>How well do you know us?</h2>
+  <p class="subtitle">Let's see how much you remember!</p>
+
+  <div class="card">
+    <h3 id="question">Question 1</h3>
+    <div id="answers"></div>
+    <p id="quizAnswer"></p>
+    <button onclick="nextQuestion()">Next question →</button>
+  </div>
+</section>
+
+<!-- MEMORIES -->
+<section>
+  <h2>Our Little World</h2>
+  <p class="subtitle">Some moments I wish I could relive forever.</p>
+
+  <div class="gallery">
+    <div class="photo">♡ Our first picture</div>
+    <div class="photo">♡ My favourite memory</div>
+    <div class="photo">♡ Your cutest picture</div>
+    <div class="photo">♡ A moment with you</div>
+  </div>
+</section>
+
+<!-- LOVE LETTER -->
+<section class="memories">
+  <h2>A Letter For You</h2>
+  <p class="subtitle">Something I want you to know.</p>
+
+  <div class="letter">
+    <h3>My dearest Booboo,</h3>
+
+    Happy 25th birthday, my love! ♡
+
+    <p>
+      I wish I could be right beside you today,
+      celebrating you, annoying you and making
+      a hundred little memories with you.
+    </p>
+
+    <p>
+      I'm so grateful that you exist and that
+      somehow, in this enormous world, I got
+      to find you.
+    </p>
+
+    <p>
+      I hope this new chapter brings you happiness,
+      beautiful opportunities and everything
+      your heart wishes for.
+    </p>
+
+    <p>
+      I love you, and I hope you never forget
+      how special you are to me.
+    </p>
+
+    <h3>Forever your girl ♡</h3>
+  </div>
+</section>
+
+<footer>
+  Made with love, especially for Booboo ♡<br>
+  November 20, 2026
+</footer>
+
+<script>
+
+// PERSONALISE THESE 25 REASONS LATER
+const reasons = [
+"You make me smile.",
+"Your silly little habits.",
+"The way you care.",
+"Your laugh.",
+"Your voice.",
+"The way you make me feel.",
+"Your sense of humour.",
+"Your kindness.",
+"Your determination.",
+"Your hugs.",
+"The way you listen.",
+"Your cute expressions.",
+"Your honesty.",
+"Your little surprises.",
+"The way you tease me.",
+"Your patience.",
+"Your dreams.",
+"Your smile.",
+"The comfort you bring.",
+"Your enthusiasm.",
+"The way you understand me.",
+"Your football obsession.",
+"Your gaming side.",
+"All our little memories.",
+"Simply because you're you."
+];
+
+const container = document.getElementById("reasons");
+
+reasons.forEach((reason, index) => {
+  const card = document.createElement("div");
+  card.className = "reason";
+  card.innerHTML = `
+    <div>♡ ${index + 1}</div>
+    <button onclick="reveal(this)">Reveal</button>
+    <p hidden>${reason}</p>
+  `;
+  container.appendChild(card);
+});
+
+function reveal(button) {
+  const message = button.nextElementSibling;
+  message.hidden = !message.hidden;
+  button.textContent = message.hidden ? "Reveal" : "Hide";
+}
+
+// PERSONALISE THE QUIZ QUESTIONS LATER
+const questions = [
+  {
+    q: "What is my favourite thing about you?",
+    a: ["Everything about you", "Your gaming skills", "Your football knowledge"],
+    correct: 0
+  },
+  {
+    q: "What would I choose?",
+    a: ["A movie date with you", "A day without you", "Neither!"],
+    correct: 0
+  },
+  {
+    q: "Who is the cutest person?",
+    a: ["Me", "You", "Both of us"],
+    correct: 1
+  }
+];
+
+let current = 0;
+
+function showQuestion() {
+  const q = questions[current];
+  document.getElementById("question").textContent = q.q;
+  document.getElementById("quizAnswer").textContent = "";
+  const answers = document.getElementById("answers");
+  answers.innerHTML = "";
+
+  q.a.forEach((answer, index) => {
+    const btn = document.createElement("button");
+    btn.textContent = answer;
+    btn.onclick = () => {
+      document.getElementById("quizAnswer").textContent =
+        index === q.correct ? "You got it! ♡" : "Oops! Try again, Booboo!";
+    };
+    answers.appendChild(btn);
+  });
+}
+
+function nextQuestion() {
+  current = (current + 1) % questions.length;
+  showQuestion();
+}
+
+showQuestion();
+
+</script>
+</body>
+</html>
