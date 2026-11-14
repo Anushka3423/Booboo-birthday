@@ -915,6 +915,10 @@ function updateCake(){
       "All 25 candles are out! Happy birthday, my love! ♡";
     launchHearts();
     launchConfetti();
+    document.getElementById("birthdaySong").play().catch(error => {
+     console.log("Music playback was blocked:", error);
+});
+    
   }else{
     document.getElementById("cakeMessage").textContent="";
   }
@@ -1070,5 +1074,6 @@ function closeLetter() {
 }
 
 </script>
+<audio id="birthdaySong" src="birthday-music.mp3" preload="auto"></audio>
 </body>
 </html>
