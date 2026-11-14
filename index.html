@@ -227,77 +227,217 @@ nav a:hover {text-decoration:underline}
   cursor: pointer;
   font-size: 15px;
 }
-/* CAKE */
-.cake-area {max-width:440px;margin:35px auto}
+
+/* DECORATIVE PINK BIRTHDAY CAKE */
+
+.cake-area {
+  max-width:520px;
+  margin:45px auto;
+  padding:15px 0 25px;
+  overflow:visible;
+}
+
 .cake {
   position:relative;
-  width:260px;
-  height:170px;
-  margin:65px auto 0;
+  width:360px;
+  height:390px;
+  margin:45px auto 0;
 }
-.cake-top {
+
+/* THREE CAKE TIERS */
+.cake-tier {
   position:absolute;
-  top:55px;
-  left:0;
-  width:260px;
-  height:45px;
-  background:#f3b9c9;
-  border-radius:50%;
-  border:4px solid #e39caf;
+  left:50%;
+  transform:translateX(-50%);
+  border:3px solid #e8a0b5;
+  background:linear-gradient(135deg,#ffdce7,#f5a9c2);
+  border-radius:18px 18px 25px 25px;
+  box-shadow:inset 0 -9px 0 rgba(197,100,135,.12),
+             0 5px 12px rgba(160,75,105,.12);
+}
+
+.tier-top {
+  top:65px;
+  width:170px;
+  height:95px;
+  z-index:3;
+  border-radius:50% 50% 18px 18px / 25% 25% 18px 18px;
+}
+
+.tier-middle {
+  top:145px;
+  width:250px;
+  height:105px;
   z-index:2;
 }
-.cake-body {
-  position:absolute;
-  top:76px;
-  left:10px;
-  width:240px;
-  height:90px;
-  background:linear-gradient(#efb3c3,#d987a0);
-  border-radius:0 0 20px 20px;
+
+.tier-bottom {
+  top:235px;
+  width:330px;
+  height:115px;
+  z-index:1;
 }
-.cake-body:after {
+
+/* CREAMY FROSTING */
+.icing {
+  position:absolute;
+  top:-5px;
+  left:-2px;
+  width:calc(100% + 4px);
+  height:25px;
+  background:#fff0f3;
+  border-radius:50% 50% 12px 12px;
+  border-bottom:3px solid #e9a2b8;
+}
+
+.icing::before,
+.icing::after {
   content:"";
   position:absolute;
-  left:0;right:0;top:0;
-  height:18px;
-  background:#fff0f1;
-  border-radius:50%;
+  top:12px;
+  width:17px;
+  height:22px;
+  background:#fff0f3;
+  border-radius:0 0 12px 12px;
 }
+
+.icing::before {left:25%}
+.icing::after {right:25%}
+
+/* HEART DECORATIONS */
+.cake-heart {
+  position:absolute;
+  top:35px;
+  left:45%;
+  color:#c94e7b;
+  font-size:35px;
+}
+
+.cake-decoration {
+  position:absolute;
+  top:45px;
+  color:#bd4776;
+  font-size:25px;
+}
+
+.tier-middle .cake-decoration:nth-of-type(2) {
+  left:20%;
+}
+.tier-middle .cake-decoration:nth-of-type(3) {
+  left:47%;
+}
+.tier-middle .cake-decoration:nth-of-type(4) {
+  right:20%;
+}
+
+.tier-bottom .cake-decoration:nth-of-type(2) {
+  left:15%;
+}
+.tier-bottom .cake-decoration:nth-of-type(3) {
+  left:47%;
+}
+.tier-bottom .cake-decoration:nth-of-type(4) {
+  right:15%;
+}
+
+/* PEARLS */
+.cake-pearl {
+  position:absolute;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 4px #e7a3b7;
+}
+
+.pearl-one {left:25px;top:45px}
+.pearl-two {right:25px;top:45px}
+
+/* STRAWBERRIES */
+.cake-strawberry {
+  position:absolute;
+  z-index:5;
+  color:#e64e72;
+  font-size:27px;
+  text-shadow:0 2px 2px #a82d50;
+}
+
+.strawberry-one {
+  top:215px;
+  left:55px;
+  transform:rotate(-15deg);
+}
+
+.strawberry-two {
+  top:215px;
+  right:55px;
+  transform:rotate(15deg);
+}
+
+/* CAKE PLATE */
+.cake-plate {
+  position:absolute;
+  z-index:0;
+  bottom:20px;
+  left:0;
+  width:360px;
+  height:25px;
+  background:linear-gradient(#fff,#f4c4d4);
+  border:3px solid #e6a3b8;
+  border-radius:50%;
+  box-shadow:0 5px 12px rgba(150,70,100,.15);
+}
+
+/* 25 CANDLES */
 .candles {
   position:absolute;
-  z-index:4;
+  z-index:6;
   top:0;
-  left:5px;
-  width:250px;
-  height:95px;
+  left:50%;
+  transform:translateX(-50%);
+  width:175px;
+  height:100px;
   display:grid;
   grid-template-columns:repeat(9,1fr);
   align-items:end;
   justify-items:center;
 }
+
 .candle {
-  width:10px;
-  height:53px;
-  border-radius:3px;
-  background:repeating-linear-gradient(45deg,#fff 0 5px,#d98aa0 5px 9px);
+  width:9px;
+  height:48px;
+  border-radius:4px;
+  background:repeating-linear-gradient(
+    45deg,#fff 0 4px,#d76b96 4px 8px
+  );
   position:relative;
   cursor:pointer;
 }
+
 .flame {
   position:absolute;
   top:-17px;
-  left:2px;
+  left:1px;
   width:7px;
   height:14px;
   border-radius:50% 50% 45% 45%;
-  background:#ffb94f;
-  box-shadow:0 0 12px #ffbb54;
+  background:#ffbd59;
+  box-shadow:0 0 9px #ffbb54,0 0 15px #ff8e48;
   animation:flicker .5s infinite alternate;
 }
+
 .candle.out .flame {display:none}
-.candle.out {opacity:.6}
-@keyframes flicker {to{transform:scale(.8);opacity:.7}}
-#cakeMessage {font-size:20px;min-height:35px}
+.candle.out {opacity:.5}
+
+@keyframes flicker {
+  to {transform:scale(.8);opacity:.7}
+}
+
+#cakeMessage {
+  font-size:20px;
+  min-height:35px;
+}
+
 
 /* MUSIC */
 .song {
@@ -400,16 +540,49 @@ input {
 <section class="soft" id="cake">
   <h2>A Cake Just For You</h2>
   <p class="subtitle">25 candles, 25 wishes. Tap each candle to blow it out!</p>
+
   <div class="cake-area">
     <div class="cake">
+
+      <!-- 25 CANDLES -->
       <div class="candles" id="candles"></div>
-      <div class="cake-top"></div>
-      <div class="cake-body"></div>
+
+      <!-- TOP TIER -->
+      <div class="cake-tier tier-top">
+        <div class="icing"></div>
+        <span class="cake-heart">♡</span>
+        <span class="cake-pearl pearl-one"></span>
+        <span class="cake-pearl pearl-two"></span>
+      </div>
+
+      <!-- MIDDLE TIER -->
+      <div class="cake-tier tier-middle">
+        <div class="icing"></div>
+        <span class="cake-decoration">♡</span>
+        <span class="cake-decoration">♡</span>
+        <span class="cake-decoration">♡</span>
+      </div>
+
+      <!-- BOTTOM TIER -->
+      <div class="cake-tier tier-bottom">
+        <div class="icing"></div>
+        <span class="cake-decoration">♡</span>
+        <span class="cake-decoration">♡</span>
+        <span class="cake-decoration">♡</span>
+      </div>
+
+      <!-- CAKE DETAILS -->
+      <div class="cake-plate"></div>
+      <div class="cake-strawberry strawberry-one">♥</div>
+      <div class="cake-strawberry strawberry-two">♥</div>
+
     </div>
   </div>
+
   <p id="candleCount">25 candles still glowing ♡</p>
   <p id="cakeMessage"></p>
-  <button onclick="resetCake()">Light them again</button>
+
+  <button onclick="resetCake()">Light them again ♡</button>
 </section>
 
 <!-- QUIZ -->
