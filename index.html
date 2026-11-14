@@ -184,34 +184,35 @@ nav a:hover {text-decoration:underline}
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(600px, calc(100vw - 36px));
-  max-height: 80vh;
+  width: 85%;
+  max-width: 550px;
+  max-height: 75vh;
   overflow-y: auto;
   box-sizing: border-box;
   background: #fffaf5;
+  color: #68434d;
   border: 2px solid #efd2da;
-  border-radius: 16px;
-  padding: 28px;
+  border-radius: 18px;
+  padding: 30px;
   text-align: left;
-  line-height: 1.9;
-  z-index: 1000;
-  box-shadow: 0 0 0 100vmax rgba(55, 25, 40, 0.55),
-              0 15px 45px #54283d40;
+  line-height: 1.8;
+  z-index: 9999;
+  box-shadow: 0 10px 50px #0005;
 }
 
 .letter-content.show {
   display: block;
-  animation: letterPopup 0.6s ease;
+  animation: letterPopup 0.5s ease;
 }
 
 @keyframes letterPopup {
   from {
     opacity: 0;
-    transform: translate(-50%, -45%) scale(0.9);
+    transform: translate(-50%, -45%);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -821,7 +822,42 @@ function spinWheel(){
   },4100);
 }
 
-/* ENVELOPE */
+  <!-- ENVELOPE -->
+<section id="letter">
+  <h2>A Letter For You</h2>
+  <p class="subtitle">I have something to tell you, my love.</p>
+
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope" onclick="openLetter()">
+      <div class="seal">♡</div>
+    </div>
+    <p>Tap the envelope to open your letter</p>
+  </div>
+
+  <div class="letter-content" id="loveLetter">
+    <h3>Dear Booboo,</h3>
+
+    <p>Happy happy birthday, baby!!</p>
+
+    <p>Let's start with the obvious statement: I love you sooo sooo much.</p>
+
+    <p>You know, when I started planning things for your birthday, it made me miss you so much. I started craving you even more. It made me wish for so many things. I started wishing I could be closer to you, planning everything in person, making you feel special while being there to experience your smile in person.</p>
+
+    <p>But while doing all these things, I also realised more good stuff. For starters, how thankful I am to have this kind of partner in my life. How lucky I am that someone loves me this much.</p>
+
+    <p>So, on this day, this special day of my special man, I want to make him feel the same. I want him to know that his girl loves him just as much. And she is hoping to make him feel lucky too.</p>
+
+    <p>So, my sweet, not-so-little-anymore baby, I wish you the happiest birthday! I pray you get all the happiness in the world. I hope everything turns in your favour and you get so many good, sweet and lucky moments in your life.</p>
+
+    <p>You deserve all the good things, baby. And I hope this year brings you plenty of reasons to smile.</p>
+
+    <p>I love you, birthday boy. So, so much. ❤️</p>
+
+    <h3>Yours,<br>Bebo ❤️</h3>
+
+    <button class="close-letter" onclick="closeLetter()">Close letter</button>
+  </div>
+</section>
 function openLetter(){
   document.getElementById("envelope").classList.add("open");
   document.getElementById("loveLetter").classList.add("show");
