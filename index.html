@@ -472,23 +472,6 @@ nav a:hover {text-decoration:underline}
 .song span {font-size:14px}
 .song a {color:#a95f76;font-size:13px;white-space:nowrap}
 
-/* WHEEL */
-.wheel-box {max-width:390px;margin:25px auto}
-#wheel {
-  width:min(310px,85vw);
-  height:min(310px,85vw);
-  border-radius:50%;
-  border:8px solid white;
-  box-shadow:0 5px 20px #a95f7630;
-  transition:transform 4s cubic-bezier(.12,.75,.15,1);
-}
-.wheel-pointer {
-  font-size:30px;
-  margin-bottom:-10px;
-  position:relative;
-  z-index:2;
-}
-#wheelResult {font-size:20px;min-height:55px}
 
 /* SECRET PAGE */
 #secretPage {
@@ -662,6 +645,7 @@ input {
     <br>
     <button id="spinButton" onclick="spinWheel()">SPIN THE WHEEL ♡</button>
     <p id="wheelResult"></p>
+    <div id="wheelSurprise"></div>
   </div>
 </section>
 
@@ -870,12 +854,12 @@ const songs = [
 
 // BIRTHDAY WHEEL PRIZES
 const prizes = [
-  "One virtual movie date ♡",
-  "A special voice note!",
-  "Unlimited kisses (redeem anytime)",
-  "You choose our next game!",
-  "A surprise from me!",
-  "One extra-long video call ♡"
+  "💋 100 Kisses",
+  "🎬 Movie Date",
+  "🤗 Unlimited Hugs",
+  "🌶️ Bebo's Strip Show",
+  "🤭 Booboo's Choice",
+  "😅 Oops!"
 ];
 
 // SECRET CODE - CHANGE THIS TO YOUR OWN
@@ -1193,23 +1177,46 @@ drawWheel();
 
 function spinWheel(){
   if(spinning)return;
+
   spinning=true;
   document.getElementById("spinButton").disabled=true;
-  document.getElementById("wheelResult").textContent="Spinning... ♡";
+
+  const result=document.getElementById("wheelResult");
+  const surprise=document.getElementById("wheelSurprise");
+
+  result.textContent="Spinning... ♡";
+  surprise.innerHTML="";
 
   const selected=Math.floor(Math.random()*prizes.length);
   const arc=360/prizes.length;
   const target=360*5+(360-(selected*arc+arc/2));
-  rotation+=target;
 
+  rotation+=target;
   canvas.style.transform=`rotate(${rotation}deg)`;
 
   setTimeout(()=>{
-    document.getElementById("wheelResult").textContent=
-      "Your surprise: "+prizes[selected];
+    result.textContent="Your surprise: "+prizes[selected];
+
+    showWheelSurprise(selected);
+
     spinning=false;
     document.getElementById("spinButton").disabled=false;
   },4100);
+}
+
+function showWheelSurprise(selected){
+  const surprise=document.getElementById("wheelSurprise");
+
+  const surprises=[
+    "💋 MWAH MWAH MWAH! 100 kisses coming your way! 💋",
+    "🎬 It's a date! Pick a movie, grab your snacks, and meet me on our virtual movie date. ♡",
+    "🤗 Incoming hug! Imagine me wrapping my arms around you and never letting go. ♡",
+    "🌶️ Bebo has a little spicy surprise for you! Watch out, birthday boy! 🌶️",
+    "🤭 The birthday boy is in charge! You get to choose your own reward. Anything you want! ♡",
+    "😅 Oops! You won absolutely nothing. Not even a virtual biscuit. Better luck next time! 😂"
+  ];
+
+  surprise.textContent=surprises[selected];
 }
 
 function openLetter(){
