@@ -7,7 +7,11 @@
 <title>Happy 25th Birthday, Booboo ♡</title>
   
 <style>
-  #wheel {
+ #wheel {
+  width: min(360px, 85vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
   transition: transform 4s cubic-bezier(0.15, 0.65, 0.15, 1);
   transform-origin: center center;
 }
@@ -1194,14 +1198,16 @@ function spinWheel(){
 
   const selected=Math.floor(Math.random()*prizes.length);
   const arc=360/prizes.length;
-  const target=360*5+(360-(selected*arc+arc/2));
 
-  rotation+=target;
+  const currentAngle=((rotation%360)+360)%360;
+  const desiredAngle=(360-(selected*arc+arc/2))%360;
+  const extra=(desiredAngle-currentAngle+360)%360;
+
+  rotation+=360*5+extra;
   canvas.style.transform=`rotate(${rotation}deg)`;
 
   setTimeout(()=>{
-    result.textContent="Your surprise: "+prizes[selected];
-
+    result.textContent="";
     showWheelSurprise(selected);
 
     spinning=false;
