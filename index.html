@@ -889,9 +889,11 @@ function revealReason(button){
 
 /* QUIZ */
 let current=0;
+let answeredCurrent=false;
 
 function showQuestion(){
   const q=questions[current];
+  answeredCurrent=false;
   document.getElementById("question").textContent=q.q;
   document.getElementById("quizAnswer").textContent="";
   const box=document.getElementById("answers");
@@ -901,18 +903,98 @@ function showQuestion(){
     const b=document.createElement("button");
     b.textContent=answer;
     b.onclick=()=>{
-      document.getElementById("quizAnswer").textContent=
-        index===q.correct?"You got it! ♡":"Oops! Try again, Booboo!";
+    if(index===q.correct){
+     document.getElementById("quizAnswer").textContent="You got it! ♡";
+     answeredCurrent=true;
+  }else{
+   document.getElementById("quizAnswer").textContent="Oops! Try again, Booboo!";
+ }
     };
     box.appendChild(b);
   });
 }
 
 function nextQuestion(){
-  current=(current+1)%questions.length;
+  if(!answeredCurrent){
+    document.getElementById("quizAnswer").textContent=
+      "You have to answer correctly first, Booboo! ♡";
+    return;
+  }
+
+  if(current===questions.length-1){
+    document.querySelector("#quiz .card").innerHTML=`
+      <div id="quizSurprise">
+        <h2>You did it, Booboo! ♡</h2>
+        <p>You survived all 10 questions!</p>
+        <p>But Bebo has one last surprise for you...</p>
+        <div style="font-size:35px;margin:20px;">✧ ✦ ✧</div>
+        <button onclick="unlockReward()">Unlock your birthday reward ♡</button>
+      </div>
+    `;
+    return;
+  }
+
+  current++;
   showQuestion();
 }
-showQuestion();
+  function unlockReward(){
+  function launchQuizSparkles(){
+  const symbols=["✦","✧","✨","⋆","♡"];
+
+  for(let i=0;i<30;i++){
+    const sparkle=document.createElement("div");
+
+    sparkle.textContent=
+      symbols[Math.floor(Math.random()*symbols.length)];
+
+    sparkle.style.position="fixed";
+    sparkle.style.left=Math.random()*100+"vw";
+    sparkle.style.top=Math.random()*100+"vh";
+    sparkle.style.color=["#d98aa8","#f2c46d","#ffffff"][Math.floor(Math.random()*3)];
+    sparkle.style.fontSize=(14+Math.random()*20)+"px";
+    sparkle.style.pointerEvents="none";
+    sparkle.style.zIndex="9999";
+    sparkle.style.animation="quizSparkle 2.5s ease-out forwards";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(()=>{
+      sparkle.remove();
+    },2500);
+  }
+}
+  document.getElementById("quizSurprise").innerHTML=`
+    <div style="font-size:45px;margin-bottom:15px;">
+      ✧ ✦ ✧
+    </div>
+
+    <h2>Your Birthday Reward! ♡</h2>
+
+    <div id="rewardCard" style="
+      background:linear-gradient(135deg,#ffe0eb,#fff5f8);
+      border:2px solid #e9a3ba;
+      border-radius:20px;
+      padding:25px 18px;
+      margin:20px auto;
+      color:#68434d;
+      max-width:350px;
+      box-shadow:0 5px 25px rgba(169,95,118,0.2);
+    ">
+      <div style="font-size:38px;">♡</div>
+      <h3>Official Bebo Reward Coupon</h3>
+      <p>Presented exclusively to my favourite Booboo.</p>
+      <h2>UNLIMITED</h2>
+      <p>♡ Kisses</p>
+      <p>♡ Hugs</p>
+      <p>♡ Love from Bebo</p>
+      <p style="font-size:13px;">No expiry date. No limit. No refunds! ♡</p>
+    </div>
+
+    <p>You are my favourite person, and that's your biggest reward. ♡</p>
+  `;
+
+  launchQuizSparkles();
+}
 
 /* CAKE - 25 CANDLES */
 const candleBox=document.getElementById("candles");
