@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy 25th Birthday, Booboo ♡</title>
-  
+
 <style>
  #wheel {
   width: min(360px, 85vw);
@@ -525,6 +525,87 @@ input {
   100% {
     opacity:0;
     transform:scale(0.5) rotate(180deg);
+  }
+}
+   #wheelSurprise {
+  display: none;
+  margin: 22px auto;
+  padding: 28px 18px;
+  max-width: 360px;
+  border-radius: 25px;
+  text-align: center;
+  background: linear-gradient(135deg,#ffe0eb,#f5b6ca,#fff0f5);
+  box-shadow: 0 8px 30px rgba(169,95,118,0.2);
+  border: 2px solid white;
+  animation: rewardPop 0.7s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+#wheelSurprise.show {
+  display: block;
+}
+
+@keyframes rewardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(25px);
+  }
+  70% {
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.rewardTitle {
+  font-family: Georgia,serif;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.rewardMessage {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.rewardSparkle {
+  font-size: 22px;
+  animation: sparkleFloat 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes sparkleFloat {
+  from {transform: translateY(0) rotate(-10deg);}
+  to {transform: translateY(-9px) rotate(10deg);}
+}
+<style>
+ #wheel {
+  width: min(360px, 85vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+   .flyingKiss {
+  position: fixed;
+  bottom: -50px;
+  font-size: 32px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: kissFloat 3s ease-out forwards;
+}
+
+@keyframes kissFloat {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(35deg) scale(1.4);
+    opacity: 0;
   }
 }
 </style>
@@ -1218,18 +1299,75 @@ function spinWheel(){
 function showWheelSurprise(selected){
   const surprise=document.getElementById("wheelSurprise");
 
-  const surprises=[
-    "💋 MWAH MWAH MWAH! 100 kisses coming your way! 💋",
-    "🎬 It's a date! Pick a movie, grab your snacks, and meet me on our virtual movie date. ♡",
-    "🤗 Incoming hug! Imagine me wrapping my arms around you and never letting go. ♡",
-    "🌶️ Bebo has a little spicy surprise for you! Watch out, birthday boy! 🌶️",
-    "🤭 The birthday boy is in charge! You get to choose your own reward. Anything you want! ♡",
-    "😅 Oops! You won absolutely nothing. Not even a virtual biscuit. Better luck next time! 😂"
+  const titles=[
+    "100 KISSES! 💋",
+    "MOVIE DATE! 🎬",
+    "UNLIMITED HUGS! 🤗",
+    "A LITTLE SPICY SURPRISE! 🌶️",
+    "BOOBOO'S CHOICE! 🤭",
+    "OOPS! NOTHING! 😅"
   ];
 
-  surprise.textContent=surprises[selected];
+  const messages=[
+    "MWAH MWAH MWAH! Your Bebo owes you 100 kisses. Get ready for a lifetime supply! 💋",
+    "It's a date, baby! Pick a movie, grab your snacks, and meet me for our virtual movie night. ♡",
+    "Sending you the biggest, warmest, longest hug ever. Imagine me holding you tight! 🤗",
+    "Bebo has a cheeky little surprise for her birthday boy. Are you ready? 🌶️",
+    "The birthday boy gets to decide! Tell Bebo exactly what reward you want. ♡",
+    "HAHA! You won absolutely nothing. Not even a biscuit. 😂"
+  ];
+
+  surprise.innerHTML=`
+    <div class="rewardSparkle">✦ ✧ ♡ ✧ ✦</div>
+    <h2 class="rewardTitle">${titles[selected]}</h2>
+    <p class="rewardMessage">${messages[selected]}</p>
+    <div class="rewardSparkle">♡ ✨ ♡ ✨ ♡</div>
+    <button onclick="closeWheelSurprise()">Close ♡</button>
+  `;
+
+  surprise.classList.remove("show");
+  void surprise.offsetWidth;
+  surprise.classList.add("show");
+  if(selected===0){
+  launchKisses();
+}
 }
 
+function closeWheelSurprise(){
+  function launchKisses(){
+  for(let i=0;i<35;i++){
+    const kiss=document.createElement("div");
+    kiss.className="flyingKiss";
+    kiss.textContent="💋";
+    kiss.style.left=Math.random()*100+"vw";
+    kiss.style.animationDelay=Math.random()*1.5+"s";
+
+    document.body.appendChild(kiss);
+
+    setTimeout(()=>{
+      kiss.remove();
+    },5000);
+  }
+}
+  const surprise=document.getElementById("wheelSurprise");
+  surprise.classList.remove("show");
+  surprise.innerHTML="";
+}
+  function launchKisses(){
+  for(let i=0;i<35;i++){
+    const kiss=document.createElement("div");
+    kiss.className="flyingKiss";
+    kiss.textContent="💋";
+    kiss.style.left=Math.random()*100+"vw";
+    kiss.style.animationDelay=Math.random()*1.5+"s";
+
+    document.body.appendChild(kiss);
+
+    setTimeout(()=>{
+      kiss.remove();
+    },5000);
+  }
+}
 function openLetter(){
   document.getElementById("envelope").classList.add("open");
   document.getElementById("loveLetter").classList.add("show");
