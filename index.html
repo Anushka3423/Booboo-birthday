@@ -625,7 +625,29 @@ input {
     opacity: 0;
   }
 }
-  
+ .flyingChilli {
+  position: fixed;
+  bottom: -60px;
+  font-size: 38px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: chilliFloat 4s ease-out forwards;
+}
+
+@keyframes chilliFloat {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg) scale(1.5);
+    opacity: 0;
+  }
+}
+ 
 </style>
 </head>
 
@@ -1354,6 +1376,11 @@ function showWheelSurprise(selected){
   if(selected===2){
     launchHugs();
   }
+ 
+if(selected===3){
+  launchChillies();
+}
+
 }
 
 function closeWheelSurprise(){
@@ -1392,6 +1419,21 @@ function launchHugs(){
 
     setTimeout(()=>{
       hug.remove();
+    },5000);
+  }
+}
+ function launchChillies(){
+  for(let i=0;i<30;i++){
+    const chilli=document.createElement("div");
+    chilli.className="flyingChilli";
+    chilli.textContent="🌶️";
+    chilli.style.left=Math.random()*100+"vw";
+    chilli.style.animationDelay=Math.random()*1.5+"s";
+
+    document.body.appendChild(chilli);
+
+    setTimeout(()=>{
+      chilli.remove();
     },5000);
   }
 }
