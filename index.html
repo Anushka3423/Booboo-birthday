@@ -518,6 +518,23 @@ input {
 }
 #secretMessage {display:none;line-height:2}
 .small {font-size:12px;color:#a17b83}
+  #secretMessage {display:none;line-height:2}
+.small {font-size:12px;color:#a17b83}
+
+@keyframes quizSparkle {
+  0% {
+    opacity:0;
+    transform:scale(0) rotate(0deg);
+  }
+  40% {
+    opacity:1;
+    transform:scale(1.3) rotate(90deg);
+  }
+  100% {
+    opacity:0;
+    transform:scale(0.5) rotate(180deg);
+  }
+}
 </style>
 </head>
 
@@ -995,7 +1012,8 @@ function nextQuestion(){
 
   launchQuizSparkles();
 }
-
+showQuestion();
+  
 /* CAKE - 25 CANDLES */
 const candleBox=document.getElementById("candles");
 
