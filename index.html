@@ -694,13 +694,12 @@ input {
   </div>
 </section>
 
-
 <!-- MUSIC -->
 <section id="music">
   <h2>Songs That Remind Me of You</h2>
   <p class="subtitle">A little soundtrack for our story ♡</p>
   <div id="playlist"></div>
-  <p class="small">Add your favourite songs and their YouTube or Spotify links in the code.</p>
+  <p class="small">Three songs, a million feelings. ♡</p>
 </section>
 
 <!-- SPIN WHEEL -->
@@ -913,12 +912,45 @@ const questions = [
 ];
 
 
-// PLAYLIST: replace the example links with your songs
+
+/* PLAYLIST */
 const songs = [
-  {name:"Our special song",artist:"Add artist name",url:"https://www.youtube.com/"},
-  {name:"A song that reminds me of you",artist:"Add artist name",url:"https://open.spotify.com/"},
-  {name:"Our next dance song",artist:"Add artist name",url:"https://www.youtube.com/"}
+  {
+    name: "Man Mast Magan",
+    artist: "Arijit Singh, Chinmayi Sripaada",
+    url: "https://www.youtube.com/results?search_query=Man+Mast+Magan+2+States"
+  },
+  {
+    name: "Can't Help Falling in Love",
+    artist: "Elvis Presley",
+    url: "https://www.youtube.com/results?search_query=Elvis+Presley+Cant+Help+Falling+in+Love"
+  },
+  {
+    name: "Nothing",
+    artist: "Bruno Major",
+    url: "https://www.youtube.com/results?search_query=Bruno+Major+Nothing"
+  }
 ];
+
+const playlistBox = document.getElementById("playlist");
+
+songs.forEach(song => {
+  const item = document.createElement("div");
+  item.className = "song";
+
+  const name = document.createElement("span");
+  name.textContent = "♫ " + song.name + " — " + song.artist;
+
+  const link = document.createElement("a");
+  link.textContent = "Listen ↗";
+  link.href = song.url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+
+  item.append(name, link);
+  playlistBox.appendChild(item);
+});
+
 
 // BIRTHDAY WHEEL PRIZES
 const prizes = [
@@ -1183,25 +1215,6 @@ function launchConfetti(){
     animation.onfinish = () => piece.remove();
   }
 }
-/* PLAYLIST */
-const playlistBox=document.getElementById("playlist");
-
-songs.forEach(song=>{
-  const item=document.createElement("div");
-  item.className="song";
-
-  const name=document.createElement("span");
-  name.textContent="♫ "+song.name+" — "+song.artist;
-
-  const link=document.createElement("a");
-  link.textContent="Listen ↗";
-  link.href=song.url;
-  link.target="_blank";
-  link.rel="noopener noreferrer";
-
-  item.append(name,link);
-  playlistBox.appendChild(item);
-});
 
 /* SPIN WHEEL */
 const canvas=document.getElementById("wheel");
