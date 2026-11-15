@@ -1346,12 +1346,14 @@ function showWheelSurprise(selected){
   surprise.classList.remove("show");
   void surprise.offsetWidth;
   surprise.classList.add("show");
-  if(selected===0){
-  launchKisses();
-}
 
-if(selected===2){
-  launchHugs();
+  if(selected===0){
+    launchKisses();
+  }
+
+  if(selected===2){
+    launchHugs();
+  }
 }
 
 function closeWheelSurprise(){
@@ -1374,8 +1376,9 @@ function launchKisses(){
       kiss.remove();
     },5000);
   }
+}
 
- function launchHugs(){
+function launchHugs(){
   const hugs=["🤗","💕","🫂","♡","🥰"];
 
   for(let i=0;i<35;i++){
