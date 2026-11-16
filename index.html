@@ -459,11 +459,39 @@ input {
   font-size:16px;
   text-align:center;
 }
-#secretMessage {display:none;line-height:2}
-.small {font-size:12px;color:#a17b83}
-  #secretMessage {display:none;line-height:2}
-.small {font-size:12px;color:#a17b83}
+.small {
+  font-size:12px;
+  color:#a17b83;
+}
 
+#secretMessage {
+  display:none;
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:50;
+  background:#fff3f5;
+  overflow:hidden;
+  text-align:center;
+}
+
+#secretGif {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.secret-text {
+  position:absolute;
+  top:15px;
+  left:0;
+  width:100%;
+  z-index:2;
+  color:#68434d;
+  text-shadow:0 1px 5px white;
+}
 @keyframes quizSparkle {
   0% {
     opacity:0;
@@ -790,18 +818,15 @@ input {
     <button onclick="unlockSecret()">Unlock my surprise</button>
     <p id="secretError" class="small"></p>
 
-    <div id="secretMessage">
-      <h2>You found me! ♡</h2>
-      <p>
-        If you made it all the way here, I hope you know
-        that there are a million more things I want to
-        tell you, a million more memories I want to make,
-        and a million more birthdays I want to celebrate
-        with you.
-      </p>
-      <p>My favourite place will always be with you.</p>
-      <h2>I love you, Booboo!</h2>
-    </div>
+   <div id="secretMessage">
+  <div class="secret-text">
+    <h2>You found me! ♡</h2>
+    <p>My favourite place will always be with you.</p>
+    <h2>I love you, Booboo! ♡</h2>
+  </div>
+
+  <img src="YOUR-GIF-FILE.gif" id="secretGif" alt="Us riding together">
+</div>
     <button onclick="closeSecret()">Go back to birthday world</button>
   </div>
 </div>
