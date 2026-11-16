@@ -473,24 +473,44 @@ input {
   z-index:50;
   background:#fff3f5;
   overflow:hidden;
+  box-sizing:border-box;
+  padding:20px;
   text-align:center;
 }
 
-#secretGif {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
+.secret-text {
+  background:white;
+  border-radius:20px;
+  padding:12px 20px;
+  max-width:650px;
+  margin:0 auto 15px;
+  color:#68434d;
+  box-shadow:0 5px 20px #a95f7620;
 }
 
-.secret-text {
-  position:absolute;
-  top:15px;
-  left:0;
+.secret-text h2 {
+  margin:5px;
+}
+
+.secret-text p {
+  margin:5px;
+}
+
+.secret-animation {
   width:100%;
-  z-index:2;
-  color:#68434d;
-  text-shadow:0 1px 5px white;
+  height:calc(100% - 150px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+#secretGif {
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
 }
 @keyframes quizSparkle {
   0% {
@@ -626,7 +646,30 @@ input {
     opacity: 0;
   }
 }
- 
+
+ @media (max-width:600px) {
+  #secretMessage {
+    padding:12px;
+  }
+
+  .secret-text {
+    padding:10px;
+    margin-bottom:10px;
+  }
+
+  .secret-text h2 {
+    font-size:20px;
+  }
+
+  .secret-animation {
+    height:calc(100% - 145px);
+  }
+
+  #secretGif {
+    max-width:100%;
+    max-height:100%;
+  }
+}
 </style>
 </head>
 
@@ -818,12 +861,17 @@ input {
     <button onclick="unlockSecret()">Unlock my surprise</button>
     <p id="secretError" class="small"></p>
 
-   <div id="secretMessage">
+  <div id="secretMessage">
   <div class="secret-text">
     <h2>You found me! ♡</h2>
     <p>My favourite place will always be with you.</p>
     <h2>I love you, Booboo! ♡</h2>
   </div>
+
+  <div class="secret-animation">
+    <img src="YOUR-GIF-FILE.gif" id="secretGif" alt="Us riding together">
+  </div>
+</div>
 
   <img src="YOUR-GIF-FILE.gif" id="secretGif" alt="Us riding together">
 </div>
