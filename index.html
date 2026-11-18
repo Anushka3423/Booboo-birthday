@@ -693,6 +693,23 @@ nav a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+ /* SECRET PAGE CLOSE BUTTON */
+.secret-close {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 100;
+  background: white;
+  color: #895365;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 3px 12px #a95f7620;
+}
 </style>
 </head>
 
@@ -885,6 +902,8 @@ nav a:hover {
     <p id="secretError" class="small"></p>
 
   <div id="secretMessage">
+   <button class="secret-close" onclick="closeSecret()">×</button>
+   
   <div class="secret-text">
     <h2>You found me! ♡</h2>
     <p>My favourite place will always be with you.</p>
