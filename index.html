@@ -679,6 +679,20 @@ nav a {
 nav a:hover {
   color:#b45f7b;
 }
+ /* 25 REASONS GRID */
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  max-width: 780px;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .reasons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 </style>
 </head>
 
